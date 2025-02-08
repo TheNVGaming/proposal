@@ -71,11 +71,11 @@
     </style>
 </head>
 <body>
-    <audio class="music" id="bg-music" loop>
+    <audio class="music" id="bg-music">
         <source src="good_for_you.mp3" type="audio/mpeg">
     </audio>
     <div class="container">
-        <button id="proposal-btn" onclick="showMessage()">Click to Propose 💖</button>
+        <button id="proposal-btn" onclick="showMessage()">For Megha 💖</button>
         <div class="hidden-message" id="message">
             Dear Mrigakshi,<br><br>
             From the moment you walked into my life, everything became brighter and more beautiful. 
@@ -97,8 +97,11 @@
         
         function playMusic() {
             const audio = document.getElementById('bg-music');
-            audio.volume = 0.5;
-            audio.play().catch(error => console.log("Autoplay blocked:", error));
+            audio.currentTime = 42; // Start at 42 seconds
+            audio.play();
+            setTimeout(() => {
+                audio.pause();
+            }, 27000); // Stop at 1:09 (27 seconds after 42s)
         }
         
         function createEmojis() {
