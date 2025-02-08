@@ -70,12 +70,12 @@
         }
     </style>
 </head>
-<body onload="playMusic()">
+<body>
     <audio class="music" id="bg-music" loop>
         <source src="good_for_you.mp3" type="audio/mpeg">
     </audio>
     <div class="container">
-        <button id="proposal-btn" onclick="showMessage()">For Megha 💖</button>
+        <button id="proposal-btn" onclick="showMessage()">Click to Propose 💖</button>
         <div class="hidden-message" id="message">
             Dear Mrigakshi,<br><br>
             From the moment you walked into my life, everything became brighter and more beautiful. 
@@ -88,14 +88,17 @@
     </div>
 
     <script>
-        function playMusic() {
-            document.getElementById('bg-music').play();
-        }
-
         function showMessage() {
             document.getElementById('message').style.display = 'block';
             document.getElementById('proposal-btn').style.display = 'none';
             createEmojis();
+            playMusic();
+        }
+        
+        function playMusic() {
+            const audio = document.getElementById('bg-music');
+            audio.volume = 0.5;
+            audio.play().catch(error => console.log("Autoplay blocked:", error));
         }
         
         function createEmojis() {
