@@ -71,7 +71,7 @@
     </style>
 </head>
 <body>
-    <audio class="music" id="bg-music" loop>
+    <audio class="music" id="bg-music">
         <source src="good_for_you.mp3" type="audio/mpeg">
     </audio>
     <div class="container">
@@ -97,12 +97,11 @@
         
         function playMusic() {
             const audio = document.getElementById('bg-music');
-            audio.currentTime = 53; // Start at 53 seconds
+            audio.currentTime = 48; // Start at 48 seconds
             audio.play();
             setTimeout(() => {
-                audio.currentTime = 53; // Reset to 53 seconds to loop
-                audio.play();
-            }, 10000); // Loop after 10 seconds (until 1:03)
+                audio.pause();
+            }, 72000); // Stop at 2:00 (72 seconds after 48s)
         }
         
         function createEmojis() {
